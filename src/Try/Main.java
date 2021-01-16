@@ -10,5 +10,7 @@ public class Main {
         double S = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         System.out.println(S);
         System.out.println("Try GitHub");
+        System.out.println();
+        System.out.println();
     }
 }
