@@ -9,6 +9,6 @@ public class Main {
         double p = (a + b + c) / 2d;
         double S = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         System.out.println(S);
-
+        System.out.println("Try GitHub");
     }
 }
