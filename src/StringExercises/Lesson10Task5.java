@@ -7,7 +7,7 @@ public class Lesson10Task5 {
     public static void main(String[] args) {
         String regex1="(\\w+)\\s(\\w+)";
         String regex2="abc(\\d)";
-        String input = "Johehn Smithh";
+        String input = "2Johehn Smithh";
         //Pattern pattern = Pattern.compile("abc\\d");
         //Matcher matcher=pattern.matcher(input);
 
