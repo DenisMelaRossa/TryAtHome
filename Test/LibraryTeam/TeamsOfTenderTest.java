@@ -1,3 +1,4 @@
+/*
 package LibraryTeam;
 
 import org.junit.After;
@@ -81,4 +82,4 @@ public class TeamsOfTenderTest {
     public void NoTeamIsFoundTest() throws NoTeamsForProjectException {
         tender1.findTeamWithMinCosts(requirements2);
     }
-}
+}*/

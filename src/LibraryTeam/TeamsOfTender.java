@@ -21,18 +21,44 @@ public class TeamsOfTender {
         teamOfTender.addAll(listOfTeams);
     }
 
-    public String[] findTeamWithMinCosts(HashMap<Professions, Integer> requirements) throws
-            NoTeamsForProjectException {
-        String[] result = new String[2];
-        int minCosts = 0;
-        for (Team elementTeam : teamOfTender) {
-            if (elementTeam.isSatisfyingRequirements(requirements) && elementTeam.getCosts() > minCosts) {
-                result[0] = elementTeam.getTeamName();
-                result[1] = "" + elementTeam.getCosts();
+    public boolean teamValidation(HashMap<Professions, Integer> requirements) {
+        boolean result = true;
+        int index = 0;
+        Set set = requirements.entrySet();
+
+        for (Object element : set) {
+
+            Map.Entry mapEntry = ((Map.Entry) element);
+            for (Team team : teamOfTender) {
+                Integer haveProfessions = team.calculateNumberOfWorkersWithProfessionInTeam((Professions) mapEntry.getKey());
+                Integer needProfessions = ((Integer) mapEntry.getValue());
+                if (haveProfessions.compareTo(needProfessions) < 0) {
+                    return false;
+                } else if (index == set.size() - 1 && haveProfessions.compareTo(needProfessions) >= 0) {
+                    result = true;
+                }
+                index++;
             }
         }
-        if (result[0] == null) throw new NoTeamsForProjectException("No Team Was Found. Close Project");
         return result;
+    }
+
+   /* public void del(TeamsOfTender tender){
+        for (Team el: tender)
+    }*/
+
+
+    public Team findTeamWithMinCosts(HashMap<Professions, Integer> requirements) throws
+            NoTeamsForProjectException {
+        int minCosts = 0;
+        Team teamResult= new Team();
+        for (Team elementTeam : teamOfTender) {
+            if (elementTeam.isSatisfyingRequirements(requirements) && elementTeam.getCosts() > minCosts) {
+                teamResult=elementTeam;
+            }
+        }
+        if (teamResult.team.isEmpty()) throw new NoTeamsForProjectException("No Team Was Found. Close Project");
+        return teamResult;
     }
 
     @Override

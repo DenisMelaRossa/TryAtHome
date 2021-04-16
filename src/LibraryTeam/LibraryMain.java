@@ -36,6 +36,10 @@ public class LibraryMain  {
         TeamsOfTender tender = new TeamsOfTender();
         tender.addAllTeams(Arrays.asList(team1, team2));
 
+       /* for (Team team:tender){
+            System.out.println(team.toString());
+        }
+*/
 
 
         HashMap<Professions, Integer> requirement = new HashMap<Professions, Integer>();
@@ -44,7 +48,6 @@ public class LibraryMain  {
         System.out.println(team1.calculateNumberOfWorkersWithProfessionInTeam(PLASTERER));
         boolean c= team1.isSatisfyingRequirements(requirement);
         System.out.println(c);
-        System.out.println(Arrays.toString(tender.findTeamWithMinCosts(requirement)));
 
         HashMap<Professions, Integer> requirement2 = new HashMap<Professions, Integer>();
         requirement2.put(BUILDER, 1);
@@ -62,6 +65,12 @@ public class LibraryMain  {
         System.out.println(w1.toString());
         System.out.println(team1.toString());
         System.out.println(tender.toString());
+
+
+        String[] arr=new String[2];
+
+        Team r=new Team();
+        System.out.println(r.team.isEmpty());
     }
 
 }
